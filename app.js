@@ -24,7 +24,11 @@ if (command === 'add') {
 } else if (command === 'list') {
   notes.getAll();
 } else if (command === 'read') {
-  notes.getNote(argv.title);
+  var note = notes.getNote(argv.title);
+  var message = note
+    ? `Note retrieved:\nTitle: ${note.title}\nBody: ${note.body}`
+    : 'Title not found';
+  console.log(message);
 } else if (command === 'remove') {
   var wasRemoved = notes.removeNote(argv.title);
   var message = wasRemoved
