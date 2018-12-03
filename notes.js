@@ -40,9 +40,7 @@ var getNote = (title) => {
   // Filter notes by title
   var newNotes = notes.filter((note) => note.title === title);
   // Return notes
-  return newNotes.length
-    ? newNotes[0]
-    : null;
+  return newNotes[0];
 };
 
 var removeNote = (title) => {
@@ -56,9 +54,17 @@ var removeNote = (title) => {
   return notes.length !== newNotes.length;
 };
 
+var logNote = (note, action='retrieved') => {
+  var message = note
+    ? `Note ${action}:\n---\nTitle: ${note.title}\nBody: ${note.body}`
+    : 'Title not found';
+  console.log(message);
+}
+
 module.exports = {
   addNote,
   getAll,
   getNote,
-  removeNote
+  removeNote,
+  logNote,
 };
