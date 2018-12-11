@@ -55,6 +55,7 @@ var removeNote = (title) => {
 };
 
 var logNote = (note, action='retrieved') => {
+  debugger;
   var message = note
     ? `Note ${action}:\n---\nTitle: ${note.title}\nBody: ${note.body}`
     : 'Title not found';
